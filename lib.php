@@ -1,4 +1,4 @@
-<?php //$Id: lib.php,v 1.21.2.29 2009/11/10 17:30:52 mchurch Exp $
+<?php //$Id: lib.php,v 1.21.2.30 2010/07/08 17:27:14 crbusch Exp $
 ///////////////////////////////////////////////////////////////////////////
 //                                                                       //
 // Copyright (C) Pro Moodle, www.promoodle.com                           //
@@ -569,12 +569,11 @@ function certificate_get_issues($certificate, $user, $sort="u.studentname ASC", 
             if (empty($groupusers)) {
                 return array();
             }
-            foreach($groupusers as $id => $gpuser) {
-                if (!isset($users[$id])) {
-                    //remove this user as it isn't in the group!
-                    unset($users[$id]);
-                }
-            }
+             foreach($users as $user){ //remove this user as it isn't in the group!
+                 if(!array_key_exists($user->id, $groupusers)) {
+                    unset($users[$user->id]); 
+                  }
+             }
         }
 
         return $users;

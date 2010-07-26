@@ -1,4 +1,4 @@
-<?php  // $Id: version.php,v 3.1.0
+<?php  // $Id: version.php,v 3.1.1
 
     require_once('../../config.php');
     require_once('lib.php');
@@ -45,7 +45,7 @@
         $navigation = build_navigation($strreport, $cm);
         print_header_simple(format_string($certificate->name).": $strreport", "", $navigation, "", '', true);
         if ($groupmode) {
-            groups_print_activity_menu($cm, 'report.php?id='.$id);
+         groups_print_activity_menu($cm, $CFG->wwwroot . "/mod/certificate/report.php?id=$cm->id");
         }
         notify('There are no issued certificates');
         print_footer();
@@ -58,7 +58,7 @@
         $navigation = build_navigation($strreport, $cm);
         print_header_simple(format_string($certificate->name).": $strreport", "", $navigation, "", '', true);
         if ($groupmode) {
-            groups_print_activity_menu($cm, 'report.php?id='.$id);
+         groups_print_activity_menu($cm, $CFG->wwwroot . "/mod/certificate/report.php?id=$cm->id");
         }
     }
 
