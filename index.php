@@ -1,13 +1,14 @@
-<?PHP // $Id: index.php,v 3.1.0
+<?PHP // $Id: index.php
 
 /// This page lists all the instances of certificate in a particular course
 
     require_once('../../config.php');
     require_once('lib.php');
+    global $DB;
 
     $id = required_param('id', PARAM_INT);           // Course Module ID
 
-    if (! $course = get_record('course', 'id', $id)) {
+    if (! $course = $DB->get_record('course', array('id'=> $id))) {
         error('Course ID is incorrect');
     }
 
@@ -22,10 +23,10 @@
 
 /// Print the header
     $navlinks = array();
-    $navlinks[] = array('name' => $strcertificates, 'link' => '', 'type' => 'activity');
+    $navlinks[] = array('name' => $strcertificates, 'link' => "index.php?id=$course->id", 'type' => 'activity');
     $navigation = build_navigation($navlinks);
 
-    print_header_simple($strcertificates, "", $navigation, "", "", true, "", navmenu($course));
+    print_header_simple($strcertificates, '', $navigation, '', '', true, '', navmenu($course));
 
 /// Get all the appropriate data
 if (! $certificates = get_all_instances_in_course('certificate', $course)) {
@@ -53,7 +54,7 @@ if ($course->format == 'weeks') {
 
 $currentgroup = get_current_group($course->id);
     if ($currentgroup and has_capability('moodle/site:accessallgroups', get_context_instance(CONTEXT_COURSE, $id))) {
-        $group = get_record('groups', 'id', $currentgroup);
+        $group = $DB->get_record('groups', array('id'=> $currentgroup));
         $groupname = " ($group->name)";
     } else {
         $groupname = "";
@@ -82,7 +83,12 @@ foreach ($certificates as $certificate) {
         $currentsection = $certificate->section;
     }
 
-    $certrecord = get_record('certificate_issues', 'certificateid', $certificate->id, 'userid', $USER->id);
+    $sql = 'SELECT MAX(timecreated) AS latest FROM {certificate_issues} '.
+                           'WHERE userid = '.$USER->id.' and certificateid = '.$certificate->id.'';
+            if ($record = $DB->get_record_sql($sql)) {
+                $latest = $record->latest;
+            }
+    $certrecord = $DB->get_record('certificate_issues', array('certificateid'=>$certificate->id, 'userid'=>$USER->id, 'timecreated'=>$latest));
     if($certrecord) {
         if($certrecord->certdate > 0) {
             $issued = userdate($certrecord->certdate);
