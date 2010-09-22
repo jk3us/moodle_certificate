@@ -1,10 +1,12 @@
-A D/A4_embedded////
-A D/A4_non_embedded////
 A D/landscape////
-A D/letter_embedded////
 A D/letter_landscape////
-A D/letter_non_embedded////
 A D/letter_portrait////
 A D/portrait////
 A D/unicode_landscape////
 A D/unicode_portrait////
+R D/unicode_portrait////
+R D/unicode_landscape////
+R D/portrait////
+R D/letter_portrait////
+R D/letter_landscape////
+R D/landscape////
