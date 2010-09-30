@@ -58,7 +58,7 @@ include '../../lib/pdflib.php';
 ///Load the specific certificatetype
     require ("$CFG->dirroot/mod/certificate/type/$certificate->certificatetype/certificate.php");
 
-    if($certificate->reissuecert) { ///Reissue certificate every time
+    if(false /*$certificate->reissuecert*/) { ///Reissue certificate every time
         if(empty($action)) {
             view_header($course, $certificate, $cm);
 			if ($lastcertrecord){

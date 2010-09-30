@@ -93,9 +93,9 @@ $customtext = $certificate->customtext;
 		$customtext=stripslashes($customtext);
 
 // Add images and lines
-    print_border($certificate->borderstyle, $orientation);
+    print_border($certificate->borderstyle, $orientation,10,10,820,580);
 	draw_frame($certificate->bordercolor, $orientation);
-    print_watermark($certificate->printwmark, $orientation);
+    print_watermark($certificate->printwmark, $orientation,112,90,600,420);
     print_seal($certificate->printseal, $orientation, 590, 425, '', '');
     print_signature($certificate->printsignature, $orientation, 130, 440, '', '');
 

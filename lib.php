@@ -437,6 +437,7 @@ function certificate_count_issues($certificate, $user, $groupmode, $cm) {
                 }
             }
         }
+        list($in_sql, $params) = $DB->get_in_or_equal(array_keys($users), SQL_PARAMS_NAMED);
 
         return $users;
     }
