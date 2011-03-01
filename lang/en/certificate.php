@@ -170,8 +170,11 @@ $string['coursegrade'] = 'Course Grade';
 $string['credithours'] = 'Credit Hours';
 
 $string['title'] = 'CERTIFICATE of ACHIEVEMENT';
+$string['titleletterlandscape'] = 'CERTIFICATE of ACHIEVEMENT';
 $string['certify'] = 'This is to certify that';
+$string['introletterlandscape'] = 'This is to certify that';
 $string['statement'] = 'has completed the course';
+$string['statementletterlandscape'] = 'has completed the course';
 
 //Certificate transcript strings
 $string['notapplicable'] = 'N/A';
@@ -184,3 +187,10 @@ $string['notissued'] = 'Not received';
 $string['reportcert'] = 'Report Certificates';
 $string['certificatereport'] = 'Certificates Report';
 $string['printerfriendly'] = 'Printer-friendly page';
+
+$string['typelandscape'] = '';
+$string['typeletter_landscape'] = '';
+$string['typeletter_portrait'] = '';
+$string['typeportrait'] = '';
+$string['typeunicode_landscape'] = '';
+$string['typeunicode_portrait'] = '';
