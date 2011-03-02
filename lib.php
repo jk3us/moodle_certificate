@@ -550,6 +550,8 @@ if ($DB->record_exists('certificate_issues', array('certificateid'=>$certificate
     $newrec = new Object();
     $newrec->certificateid = $certificate->id;
     $newrec->userid = $user->id;
+    $newrec->studentname = fullname($user);
+    $newrec->classname = $course->fullname;
     $newrec->timecreated = $timecreated;
     $newrec->code = $code;
 
