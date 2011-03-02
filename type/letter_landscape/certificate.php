@@ -94,31 +94,33 @@ $customtext = $certificate->customtext;
     // Add images and lines
     print_border_letter($certificate->borderstyle, $orientation);
 	draw_frame_letter($certificate->bordercolor, $orientation);
-    print_watermark($certificate->printwmark, $orientation,83,130,450,480);
-    print_seal($certificate->printseal, $orientation, 590, 425, '', '');
+    print_watermark($certificate->printwmark, $orientation,0,80,600,400);
+    print_seal($certificate->printseal, $orientation, 590, 400, '', '');
     print_signature($certificate->printsignature, $orientation, 110, 450, '', '');
 
 // Add text
     $pdf->SetTextColor(0,0,120);
-    cert_printtext(150, 125, 'C', 'Helvetica', 'B', 30, utf8_decode(get_string("titleletterlandscape", "certificate")));
+    cert_printtext(0, 125, 'C', 'Helvetica', 'B', 30, utf8_decode(get_string("titleletterlandscape", "certificate")));
     $pdf->SetTextColor(0,0,0);
-    cert_printtext(150, 180, 'C', 'Times', 'B', 20, utf8_decode(get_string("introletterlandscape", "certificate")));
-    cert_printtext(150, 230, 'C', 'Helvetica', '', 30, utf8_decode($studentname));
-    cert_printtext(150, 280, 'C', 'Helvetica', '', 20, utf8_decode(get_string("statementletterlandscape", "certificate")));
-    cert_printtext(150, 330, 'C', 'Helvetica', '', 20, utf8_decode($course->fullname));
-    cert_printtext(150, 380, 'C', 'Helvetica', '', 14, utf8_decode($certificatedate));
-    cert_printtext(150, 420, 'C', 'Times', '', 10, utf8_decode($grade));
-    cert_printtext(150, 431, 'C', 'Times', '', 10, utf8_decode($outcome));
-    cert_printtext(150, 442, 'C', 'Times', '', 10, utf8_decode($credithours));
-    cert_printtext(150, 500, 'C', 'Times', '', 10, utf8_decode($code));
+    cert_printtext(0, 180, 'C', 'Times', 'B', 20, utf8_decode(get_string("introletterlandscape", "certificate")));
+    cert_printtext(0, 230, 'C', 'Helvetica', '', 30, utf8_decode($studentname));
+    cert_printtext(0, 280, 'C', 'Helvetica', '', 20, utf8_decode(get_string("statementletterlandscape", "certificate")));
+    cert_printtext(0, 330, 'C', 'Helvetica', '', 20, utf8_decode($course->fullname));
+    cert_printtext(0, 380, 'C', 'Helvetica', '', 14, utf8_decode($certificatedate));
+    cert_printtext(0, 420, 'C', 'Times', '', 10, utf8_decode($grade));
+    cert_printtext(0, 431, 'C', 'Times', '', 10, utf8_decode($outcome));
+    cert_printtext(0, 442, 'C', 'Times', '', 10, utf8_decode($credithours));
+    cert_printtext(0, 500, 'C', 'Times', '', 10, utf8_decode($code));
     $i = 0 ;
 	if($certificate->printteacher){
-    $context = get_context_instance(CONTEXT_MODULE, $cm->id);
-    if ($teachers = get_users_by_capability($context, 'mod/certificate:printteacher', '', $sort='u.lastname ASC','','','','',false)) {
-		foreach ($teachers as $teacher) {
-			$i++;
-	cert_printtext(110, 460+($i *12) , 'L', 'Times', '', 12, utf8_decode(fullname($teacher)));
-}}}
+		$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+		if ($teachers = get_users_by_capability($context, 'mod/certificate:printteacher', '', $sort='u.lastname ASC','','','','',false)) {
+			foreach ($teachers as $teacher) {
+				$i++;
+				cert_printtext(110, 460+($i *12) , 'L', 'Times', '', 12, utf8_decode(fullname($teacher)));
+			}
+		}
+	}
     cert_printtext(120, 470, '', '', '', '', '');
 	$pdf->SetLeftMargin(110);
 	$pdf->WriteHTML($customtext);

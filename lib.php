@@ -1108,7 +1108,7 @@ function print_border_letter($border, $orientation) {
         switch ($orientation) {
             case 'L':
         if(file_exists("$CFG->dirroot/mod/certificate/pix/borders/$border")) {
-            $pdf->Image("$CFG->dirroot/mod/certificate/pix/borders/$border", 12, 10, 771, 594);
+            $pdf->Image("$CFG->dirroot/mod/certificate/pix/borders/$border", 10, 10, 770, 545);
         }
         break;
             case 'P':
@@ -1135,14 +1135,14 @@ function print_watermark($wmark, $orientation, $x, $y, $w, $h) {
         switch ($orientation) {
             case 'L':
             if(file_exists("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark")) {
-                $pdf->Image("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", $x, $y, $w, $h);
+                $pdf->Image("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", $x, $y, $w, $h,'','','',true,300, 'C',false,false,0,true);
 
   //              $pdf->Image( "$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", 122, 90, 600, 420);
             }
             break;
             case 'P':
             if(file_exists("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark")) {
-                $pdf->Image("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", $x, $y, $w, $h);
+				$pdf->Image("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", $x, $y, $w, $h,'','','',true,300, 'C',false,false,0,true);
  //                $pdf->Image("$CFG->dirroot/mod/certificate/pix/watermarks/$wmark", 78, 130, 450, 480);
            }
             break;

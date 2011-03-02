@@ -188,9 +188,9 @@ $string['reportcert'] = 'Report Certificates';
 $string['certificatereport'] = 'Certificates Report';
 $string['printerfriendly'] = 'Printer-friendly page';
 
-$string['typelandscape'] = '';
-$string['typeletter_landscape'] = '';
-$string['typeletter_portrait'] = '';
-$string['typeportrait'] = '';
-$string['typeunicode_landscape'] = '';
-$string['typeunicode_portrait'] = '';
+$string['typelandscape'] = 'Landscape';
+$string['typeletter_landscape'] = 'Letter-Landscape';
+$string['typeletter_portrait'] = 'Letter Portrait';
+$string['typeportrait'] = 'Portrait';
+$string['typeunicode_landscape'] = 'Unicode Landscape';
+$string['typeunicode_portrait'] = 'Unicode Portrait';
