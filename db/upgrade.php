@@ -126,18 +126,21 @@ function xmldb_certificate_upgrade($oldversion=0) {
 
 //===== 2.0 or older upgrade line ======//
 
-    if ($result && $oldversion < 2009062900) {
+    if ($result && $oldversion < 2010110102) {
 
     /// Add new field to certificate table
         $table = new xmldb_table('certificate');
         $field = new xmldb_field('introformat', XMLDB_TYPE_INTEGER, '4', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0', 'intro');
-        $dbman->add_field($table, $field);
+        if (!$dbman->field_exists($table, $field))
+            $dbman->add_field($table, $field);
 
         $field = new xmldb_field('orientation', XMLDB_TYPE_CHAR, '10', null, XMLDB_NOTNULL, null, ' ', 'certificatetype');
-        $dbman->add_field($table, $field);
+        if (!$dbman->field_exists($table, $field))
+            $dbman->add_field($table, $field);
 
         $field = new xmldb_field('reissuecert', XMLDB_TYPE_INTEGER, '2', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, '0', 'reportcert');
-        $dbman->add_field($table, $field);
+        if (!$dbman->field_exists($table, $field))
+            $dbman->add_field($table, $field);
 
     /// Set default orientation accordingly
         $DB->set_field('certificate', 'orientation', 'P', array('certificatetype' => 'portrait'));
@@ -156,7 +159,7 @@ function xmldb_certificate_upgrade($oldversion=0) {
         $DB->set_field('certificate', 'certificatetype', 'letter_non_embedded', array('certificatetype' => 'letter_portrait'));
 
     /// savepoint reached
-        upgrade_mod_savepoint($result, 2009062900, 'certificate');
+        upgrade_mod_savepoint($result, 2010110102, 'certificate');
     }
 
     return $result;
