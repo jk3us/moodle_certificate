@@ -75,7 +75,7 @@ Email Certificate: Choosing this option sends the certificate to the student as 
 After a user receives their certificate, if they click on the certificate link from the course homepage, they will see the date they received their certificate and will be able to review their received certificate.';
 $string['savecert_help'] = 'If you choose this option, then a copy of each user\'s certificate pdf file is saved in the course files moddata folder for that certificate. A link to each user\'s saved certificate will be displayed in the certificate report.'; 
 $string['reportcert_help'] = 'If you choose yes here, then this certificate\'s date received, code number, and the course name will be shown on the user certificate reports.  If you choose to print a grade on this certificate, then that grade will also be shown on the certificate report.';
-$string['reissuecert_help'] = 'If you choose yes here, then this certificate will be reissued with a new date, grade and code number every time a user clicks to get the certificate. Note:  No review button will be availableto user\'s.  Only the latest issued certificate will appear in the certificate report.';
+$string['reissuecert_help'] = 'If you choose yes here, then this certificate will be reissued with a new date, grade and code number every time a user clicks to get the certificate. Note:  Although a table will show their past received dates, no review button will be availableto users.  Only the latest issued certificate will appear in the certificate report.';
 $string['printdate_help'] = 'This is the date that will be printed, if a print date is selected. If the course end date is selected, you must enable the date range and set the course end date in your course settings.  If the course end date is not set, the date received will be printed. You can also choose to print the date  an activity is graded. If a certificate is issued before that activity is graded, the date received will be printed.';
 $string['datefmt_help'] = 'Choose a date format to print the date on the certificate. Or, choose the last option to have the date printed in the format of the user\'s chosen language.';
 $string['printnumber_help'] = 'A unique 10-digit code of random letters and numbers can be printed on the certificate. This number can then be verified by comparing it to the code number displayed in the certificates report.';
@@ -121,7 +121,6 @@ $string['grade'] = 'Grade';
 $string['incompletemessage'] = 'In order to download your certificate, you must first complete all required '.'activities. Please return to the course to complete your coursework.';
 $string['awardedto'] = 'Awarded To';
 $string['issued'] = 'Issued';
-$string['lastviewed'] = 'You last received this certificate on:';
 $string['notissued'] = 'Not Issued';
 $string['notissuedyet'] = 'Not issued yet';
 $string['notreceived'] = 'You have not received this certificate';
@@ -129,16 +128,17 @@ $string['getcertificate'] = 'Get your certificate';
 $string['report'] = 'Report';
 $string['code'] = 'Code';
 $string['viewed'] = 'You received this certificate on:';
+$string['lastviewed'] = 'You last received this certificate on:';
 $string['viewcertificateviews'] = 'View {$a} issued certificates';
 $string['reviewcertificate'] = 'Review your certificate';
 $string['openwindow'] = 'Click the button below to open your certificate
 in a new browser window.';
 $string['opendownload'] = 'Click the button below to save your certificate
 to your computer.';
-$string['or'] = 'or';
 $string['openemail'] = 'Click the button below and your certificate
 will be sent to you as an email attachment.';
 $string['receivedcerts'] = 'Received certificates';
+$string['summaryofattempts'] = 'Summary of Previously Received Certificates';
 
 //Email text
 $string['emailstudenttext'] = 'Attached is your certificate for {$a->course}.';
@@ -184,3 +184,4 @@ $string['notissued'] = 'Not received';
 $string['reportcert'] = 'Report Certificates';
 $string['certificatereport'] = 'Certificates Report';
 $string['printerfriendly'] = 'Printer-friendly page';
+$string['or'] = 'Or';
