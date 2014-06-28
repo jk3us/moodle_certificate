@@ -661,7 +661,7 @@ function certificate_print_attempts($certificateid, $userid) {
         return false;
     }
          $attempts = certificate_get_attempts($certificateid, $userid);
-       
+
 	    echo $OUTPUT->heading(get_string('summaryofattempts', 'certificate'));
 
         // Prepare table header
@@ -710,7 +710,7 @@ function certificate_print_attempts($certificateid, $userid) {
 function certificate_prepare_issue($course, $user, $certificate) {
    global $DB;
 
-    if($certificate->reissuecert == 0) { 
+    if($certificate->reissuecert == 0) {
 if ($DB->record_exists('certificate_issues', array('certificateid'=>$certificate->id, 'userid'=>$user->id))) {
         return;
     }

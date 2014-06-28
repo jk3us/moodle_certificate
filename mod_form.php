@@ -55,7 +55,7 @@ class mod_certificate_mod_form extends moodleform_mod {
         $mform->addElement('select', 'reissuecert', get_string('reissuecert', 'certificate'), $ynoptions);
         $mform->setDefault('reissuecert', 0);
 	    $mform->addHelpButton('reissuecert', 'reissuecert', 'certificate');
-        
+
 //-------------------------------------------------------------------------------
         $mform->addElement('header', 'textoptions', get_string('textoptions', 'certificate'));
 
@@ -109,7 +109,7 @@ class mod_certificate_mod_form extends moodleform_mod {
         $mform->addHelpButton('certificatetype', 'certificatetype', 'certificate');
 
         $orientation = array( 'L' => get_string('landscape', 'certificate'), 'P' => get_string('portrait', 'certificate'));
-        $mform->addElement('select', 'orientation', get_string('orientation', 'certificate'), $orientation);
+   http://m2.lo/theme/image.php?theme=standard&image=icon&rev=163&component=certificate     $mform->addElement('select', 'orientation', get_string('orientation', 'certificate'), $orientation);
         $mform->setDefault('orientation', 'landscape');
         $mform->addHelpButton('orientation', 'orientation', 'certificate');
 
@@ -143,4 +143,4 @@ class mod_certificate_mod_form extends moodleform_mod {
         $this->add_action_buttons();
 
     }
-}
+}http://m2.lo/theme/image.php?theme=standard&image=icon&rev=163&component=certificate
